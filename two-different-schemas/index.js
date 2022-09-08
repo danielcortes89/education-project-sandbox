@@ -31,6 +31,11 @@ let arrayOfDescriptions = [
 ]
 
 const conditionalRender = (objectToBeChecked) => {
+  if(objectToBeChecked == undefined){
+    console.log('No data')
+    return
+  }
+
   if(objectToBeChecked.identifier === "image"){
     console.log(`This is an image. It is number ${objectToBeChecked.sequence} to be rendered. Render with the Image data`)
   } else if (objectToBeChecked.identifier === "description"){
@@ -46,8 +51,27 @@ const methodOne = (images, descriptions) => {
   // 2 - order by sequence
   holder.sort((a,b) => a.sequence - b.sequence)
 
+  // Map through with conditional rendering
   holder.forEach(conditionalRender)
-  // console.log(holder)
 }
 
-methodOne(arrayOfImages, arrayOfDescriptions)
+const methodTwo = (sequenceLength, images, descriptions) => {
+  // 1 - inherit sequence length from Topic schema
+  // 2 - make loop to go through sequence
+  for(i=1; i <= sequenceLength; i++){
+    // check each array for matching sequence
+    let workingItem 
+
+    if(images.filter(object => object.sequence === i).length > 0){
+      workingItem = images.filter(object => object.sequence === i)[0]
+    } else if(descriptions.filter(object => object.sequence === i)){
+      workingItem = descriptions.filter(object => object.sequence === i)[0]
+    }
+    conditionalRender(workingItem)
+  }
+  console.log('End of use')
+}
+
+// TEST THEM HERE
+// methodOne(arrayOfImages, arrayOfDescriptions)
+methodTwo(6, arrayOfImages, arrayOfDescriptions)
