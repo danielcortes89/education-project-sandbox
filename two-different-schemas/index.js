@@ -73,5 +73,13 @@ const methodTwo = (sequenceLength, images, descriptions) => {
 }
 
 // TEST THEM HERE
+
+const testOne =() => {
+  methodOne(arrayOfImages, arrayOfDescriptions)
+}
+
+const testTwo = () => {
+  methodTwo(6, arrayOfImages, arrayOfDescriptions)
+}
 // methodOne(arrayOfImages, arrayOfDescriptions)
-methodTwo(6, arrayOfImages, arrayOfDescriptions)
+// methodTwo(6, arrayOfImages, arrayOfDescriptions)
