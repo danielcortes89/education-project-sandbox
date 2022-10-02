@@ -14,6 +14,8 @@ let arrayOfImages = [
   }
 ]
 
+// Comment added by MC to test pushing change to DC's GitHub repo
+
 let arrayOfDescriptions = [
   {
     id: "doesn't matter",
